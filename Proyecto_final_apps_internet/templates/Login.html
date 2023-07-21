@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="/static/css/stilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style>
+    footer{
+    padding: 1em 0;
+    position: absolute;
+    bottom: 0%;
+    background-color: rgb(241, 246, 248);
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    font-size: smaller;
+     }
+    
+</style>
+<body class=" row d-flex justify-content-center align-items-center  mx-3 vh-100">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% for category, message in messages %}
+  
+    {% if category == "green" %}
+      <div class="green flash-message" style="top: 0;">{{ message }}</div>
+    {% endif %}
+  
+    {% if category == "red" %}
+      <div class="red" style="top: 0;">{{ message }}</div>
+    {% endif %}
+   
+    {% endfor %}
+  {% endwith %}
+    <div class="container bg-white p-5 rounded-4 shadow col col-sm-10 col-xl-4 col-lg-4 col-md-5">
+         <div class="logo_login">
+            <img src="{{ url_for('static', filename = 'img/companybg.png') }}" alt="" style="height: 8rem;">
+         </div>
+        
+         <form method="POST"> 
+            {% from "base/macro.html" import render_field %}   
+            <div class="text-center fs-1 fw-bold">Login</div>
+            <!--Nombre de usuario-->
+            <h6>Nombre de usuario</h6>
+                <div class="input-group mt-2">
+                    <div class="input-group-text">
+                        <i class="bi bi-person-circle" style="height: 1rem; margin-bottom: 10px;" ></i>
+                    </div>
+                    {{ render_field(form.usuario, class ="form-control",placeholder="Ingrese el Nombre de usuario") }}
+                </div>
+                <!--Contraseña-->
+                <h6 class="mt-4">Contraseña</h6>
+                    <div class="input-group my-2">
+                        <div class="input-group-text ">
+                            <i class="bi bi-lock-fill " style="height: 1rem; margin-bottom: 10px;"> </i>
+                        </div>
+                        {{ render_field(form.clave, class ="form-control",placeholder="Ingrese la Contraseña") }}
+                    </div>
+
+                    <div> 
+                        <div class="my-3"> <a class="btn btn-primary" href="{{ url_for('ingresar') }}">Regístrar</a></div>
+                        {{ form.honeypot }}
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <button  class="btn btn-primary text-white w-100 mt-2" type="submit">Ingresar</button>
+                    </div>
+         </form>
+     </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+
+        setTimeout(function() {
+          var mensajes = document.getElementsByClassName("flash-message");
+          for (var i = 0; i < mensajes.length; i++) {
+            mensajes[i].style.display = "none";
+          }
+        }, 4000);
+      </script>
+</body>
+</html>

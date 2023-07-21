@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat+Alternates:wght@500&family=Poppins:wght@600&family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat+Alternates:wght@500&family=Poppins:wght@600&family=Rubik:wght@300&display=swap');
+body{
+    font-family: 'Rubik', sans-serif;
+    overflow-x: hidden;
+    background: #1f4037;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+    
+#side_nav{
+ background: #2b2b2b;
+ min-width: 250px;
+ max-width: 250px;
+ transition: all 0.2s;
+ height: 100%;
+ position: fixed;
+ z-index: 2;
+ 
+}
+
+.navbar{
+    height: 60px;
+    background-color: #336a85;
+}
+
+.content{
+ min-height: 100vh;
+ width: 100%;
+}
+    
+hr .h-color{
+background: #eee;
+}
+
+.sidevar li.active{
+background: #eee;
+border-radius: 8px;
+}
+    
+.sidevar li.active a, .sidevar li.active a:hover{
+color: #000;
+}
+    
+.sidevar li a{
+color: #fff;
+}
+.grupo{
+    transition: all 0.3s ease-out;
+}
+    
+@media(max-width: 767px){
+        #side_nav{
+            margin-left: -250px;
+            position: fixed;
+            z-index: 1;
+            height: 1000px;
+    
+        }
+        #side_nav.active{
+            margin-left: 0;
+        }
+    }
+    .dropdown-menu-right {
+        right: 0;
+        left: auto;
+      }
+
+.filter{
+    
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
+}
+
+.container .logo_login{
+    margin-top: -100px;
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+    border-radius: 16px;
+
+}
+
+
+article.registro_horas{
+   width: 100%;
+    margin-bottom: 40PX;
+   display: flex;
+justify-content: center;
+
+}
+
+.red {
+    color: white;
+    background-color: rgb(198, 52, 52);
+    height: auto;
+    font-size: 25px;
+    padding: 10px;
+    padding-left: -10px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    
+}
+
+h3.aja{
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+.green {
+    background-color: rgb(138, 250, 138);
+    color: rgb(8, 78, 8);
+    height: auto;
+    font-size: 25px;
+    padding: 10px;
+    padding-left: -10px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+.registro_form{
+    width: 100%;
+}
+
+.registro_horas .contenedor{
+    display: flex;
+justify-content: center;
+background-color: #eee;
+margin-top: 50px;
+ border-radius: 16px;
+ width: 60%;
+ padding: 20px 40px 20px 40px;
+}
+
+.container{
+    width: 90%;
+    background-color: #eff7f3;
+    padding: 20px 30px 20px 30px;
+    margin-top: 50px;
+    border-radius: 16px;
+   
+}

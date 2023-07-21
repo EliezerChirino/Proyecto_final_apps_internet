@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+{% block titulo %}
+<title>{{titulo}}</title>
+{% endblock %}
+{% block body %}
+
+
+<article class="registro_horas" style="padding-left: 250px;">
+    
+    <div class="contenedor">
+        <form method="POST" class="registro_form"> 
+            {% from "base/macro.html" import render_field %}   
+            <h3 class="text-center mt-4 ">Regisro de horas de entrada y salida </h3>
+            <!--Hora de entrada-->
+            <h6 class="mt-5">Ingrese la hora de entrada</h6>
+                <div class="input-group mt-2">
+                    <div class="input-group-text">
+                        <i class="bi bi-alarm" style="height: 1rem; margin-bottom: 10px;" ></i>
+                    </div>
+                    {{ render_field(form.hora_entrada, class ="form-control") }}
+                </div>
+
+                <h6 class="mt-3">Ingrese la hora de salida</h6>
+                <div class="input-group mt-2">
+                    <div class="input-group-text">
+                        <i class="bi bi-alarm" style="height: 1rem; margin-bottom: 10px;" ></i>
+                    </div>
+                    {{ render_field(form.hora_salida, class ="form-control") }}
+                </div>
+                
+                
+                    <div class="mt-4"> 
+                        {{ form.honeypot }}
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <button  class="btn btn-primary text-white w-100 mt-2" type="submit">Registrar</button>
+                    </div>
+         </form>
+    </div>
+</article>
+                  
+{% endblock %}
+
